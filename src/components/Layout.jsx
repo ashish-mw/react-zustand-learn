@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { useStore } from "../store";
+
 const Layout = ({ children, title }) => {
+  const user = useStore((state) => state.user);
+  const clearUser = useStore((state) => state.clearUser);
+
   useEffect(() => {
     if (title) {
       document.title = title;
@@ -9,6 +14,10 @@ const Layout = ({ children, title }) => {
       document.title = "...";
     }
   }, [title]);
+
+  const handleClick = () => {
+    clearUser();
+  };
 
   return (
     <div>
@@ -18,7 +27,11 @@ const Layout = ({ children, title }) => {
             <Link to="/">Dashboard</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            {user ? (
+              <button onClick={handleClick}>Logout</button>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
           </li>
         </ul>
       </nav>
