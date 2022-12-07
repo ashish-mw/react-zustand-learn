@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-
 import Layout from "../components/Layout";
+import BookList from "../components/BookList";
 import { useStore } from "../store";
 
 const Dashboard = () => {
@@ -17,6 +17,8 @@ const Dashboard = () => {
       <p>
         Try visiting <Link to="/login">the login page</Link>. You can't 😈
       </p>
+
+      <BookList />
     </Layout>
   );
 };
