@@ -27,6 +27,9 @@ const Layout = ({ children, title }) => {
             <Link to="/">Dashboard</Link>
           </li>
           <li>
+            <Link to="/somewhere-else">Somewhere else</Link>
+          </li>
+          <li>
             {user ? (
               <button onClick={handleClick}>Logout</button>
             ) : (
