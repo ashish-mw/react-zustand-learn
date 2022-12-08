@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 const BookList = () => {
   const { isLoading, error, data, isFetching } = useQuery(
     ["bookListData"],
-    () => fetch("http://localhost:9898").then((res) => res.json())
+    () => fetch("http://localhost:9898").then((res) => res.json()),
+    { staleTime: 10000 }
   );
 
   if (isLoading) return "Loading ...";

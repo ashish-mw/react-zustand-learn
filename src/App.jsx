@@ -9,13 +9,7 @@ const Login = lazy(() => import("./pages/Login"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SomewhereElse = lazy(() => import("./pages/SomewhereElse"));
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 10000, // 10 seconds
-    },
-  },
-});
+const queryClient = new QueryClient();
 
 function App() {
   return (
